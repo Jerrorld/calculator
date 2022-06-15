@@ -1,9 +1,9 @@
 var input = document.getElementById('input'),
-number = document.querySelectorAll('.numbers div'),
-operator = document.querySelectorAll('.operators div'),
-result = document.getElementById('result'),
-clear = document.getElementById('clear'),
-resultDisplayed = false;
+    number = document.querySelectorAll('.numbers div'),
+    operator = document.querySelectorAll('.operators div'),
+    result = document.getElementById('result'),
+    clear = document.getElementById('clear'),
+    resultDisplayed = false;
 
 for (var i = 0; i < number.length; i++) {
     number[i].addEventListener("click", function(e) {
@@ -49,7 +49,7 @@ result.addEventListener("click", function() {
 
     var divide = operators.indexOf("÷");
     while (divide != -1) {
-        numbers.splice(divide, 2, numbers,[divide] / numbers[divide + 1]);
+        numbers.splice(divide, 2, numbers[divide] / numbers[divide + 1]);
         operators.splice(divide, 1);
         divide = operators.indexOf("÷");
     }
@@ -61,11 +61,11 @@ result.addEventListener("click", function() {
         multiply = operators.indexOf("x");
     }
 
-    var subtract = operators.indexOf("-");
-    while (subtract != -1) {
-        numbers.splice(subtract, 2, numbers[subtract] - numbers[subtract + 1]);
-        operators.splice(subtract, 1);
-        subtract = operators.indexOf("-")
+    var multiply = operators.indexOf("×");
+    while (multiply != -1) {
+        numbers.splice(multiply, 2, numbers[multiply] * numbers[multiply + 1]);
+        operators.splice(multiply, 1);
+        multiply = operators.indexOf("×");
     }
 
     var add = operators.indexOf("+");
